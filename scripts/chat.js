@@ -5,7 +5,7 @@ class ChatSystem {
         this.isRecording = false;
         this.recognition = null;
         this.isOnline = navigator.onLine;
-        this.API_URL = 'https://kohalpur-gpt-api.onrender.com/api/chat'; // Example backend
+       this.API_URL = 'https://kohalpur-gpt.onrender.com/api/chat';
         this.localFAQ = [];
         this.initializeChat();
     }
@@ -635,4 +635,5 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('online', updateNetworkStatus);
         window.addEventListener('offline', updateNetworkStatus);
     }
+
 });
