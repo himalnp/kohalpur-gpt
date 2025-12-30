@@ -60,3 +60,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+// In server.js on Render
+app.post('/api/chat', (req, res) => {
+    // Your chat logic here
+    res.json({ answer: '...', verified: true });
+});
