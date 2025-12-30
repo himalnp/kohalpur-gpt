@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat - Kohalpur GPT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h1>Kohalpur GPT</h1>
+                    <span>AI Chat Assistant</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="chat.html" class="active"><i class="fas fa-comments"></i> AI Chat</a></li>
+                <li><a href="complaint.html"><i class="fas fa-flag"></i> Complaint</a></li>
+                <li><a href="emergency.html"><i class="fas fa-phone-alt"></i> Emergency</a></li>
+                <li><a href="directory.html"><i class="fas fa-address-book"></i> Directory</a></li>
+                <li><a href="offline-faq.html"><i class="fas fa-database"></i> FAQ</a></li>
+                <li class="language-switcher">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="np">नेपाली</option>
+                        <option value="th">थारु</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Chat Container -->
+    <main class="chat-container">
+        <div class="container">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-info">
+                    <div class="chat-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h2>Kohalpur AI Assistant</h2>
+                        <div class="chat-status">
+                            <span class="status-dot" id="statusDot"></span>
+                            <span id="statusText">Online</span>
+                            <span class="verified-badge">
+                                <i class="fas fa-check-circle"></i> Verified Information
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button class="action-btn" id="clearChat" title="Clear Chat">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="action-btn" id="toggleVoice" title="Toggle Voice">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="action-btn" id="suggestQuestions" title="Suggest Questions">
+                        <i class="fas fa-lightbulb"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be loaded here -->
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="quick-suggestions" id="quickSuggestions">
+                <button class="suggestion-btn" data-question="Who is the mayor of Kohalpur?">Mayor Info</button>
+                <button class="suggestion-btn" data-question="Emergency numbers">Emergency Contacts</button>
+                <button class="suggestion-btn" data-question="Hospital locations">Find Hospitals</button>
+                <button class="suggestion-btn" data-question="Tourist places">Tourist Info</button>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-area">
+                <div class="input-container">
+                    <textarea id="messageInput" placeholder="Type your question here... Press Enter to send, Shift+Enter for new line" rows="1"></textarea>
+                    <div class="input-actions">
+                        <button id="voiceToggle" class="voice-btn">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button id="attachFile" class="attach-btn" title="Attach File">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button id="sendMessage" class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="voice-status" id="voiceStatus">
+                    <i class="fas fa-microphone-alt"></i>
+                    <span>Listening...</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Offline Alert -->
+    <div class="offline-alert" id="offlineAlert">
+        <i class="fas fa-wifi-slash"></i>
+        <span id="offlineText">You are currently offline. Using local FAQ database.</span>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/chat.js"></script>
+</body>
+</html>

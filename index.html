@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kohalpur GPT - Community Digital Assistant</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h1>Kohalpur GPT</h1>
+                    <span>Municipality Digital Assistant</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="chat.html"><i class="fas fa-comments"></i> AI Chat</a></li>
+                <li><a href="complaint.html"><i class="fas fa-flag"></i> Complaint</a></li>
+                <li><a href="emergency.html"><i class="fas fa-phone-alt"></i> Emergency</a></li>
+                <li><a href="directory.html"><i class="fas fa-address-book"></i> Directory</a></li>
+                <li><a href="offline-faq.html"><i class="fas fa-database"></i> FAQ</a></li>
+                <li class="language-switcher">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="np">नेपाली</option>
+                        <option value="th">थारु</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 id="hero-title">Welcome to Kohalpur GPT</h1>
+                <p id="hero-subtitle">Your community-focused digital assistant for Kohalpur Municipality, Nepal</p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 AI Support</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-wifi-slash"></i>
+                        <span>Offline Access</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-language"></i>
+                        <span>3 Languages</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Verified Info</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="chat.html" class="btn-primary">
+                        <i class="fas fa-comment-dots"></i> Start Chatting
+                    </a>
+                    <a href="emergency.html" class="btn-secondary">
+                        <i class="fas fa-phone-alt"></i> Emergency Contacts
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kohalpur">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title" id="features-title">Key Features</h2>
+            <p class="section-subtitle" id="features-subtitle">Comprehensive digital assistant services for Kohalpur residents and visitors</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon ai">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Chat Assistant</h3>
+                    <p>Get instant answers about Kohalpur in English, Nepali, or Tharu languages</p>
+                    <a href="chat.html" class="feature-link">Try Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon offline">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Offline FAQ</h3>
+                    <p>Access 100+ common questions even without internet connection</p>
+                    <a href="offline-faq.html" class="feature-link">Browse FAQ <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon emergency">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Emergency Support</h3>
+                    <p>Verified local emergency numbers for police, ambulance, fire services</p>
+                    <a href="emergency.html" class="feature-link">View Contacts <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon complaint">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Complaint System</h3>
+                    <p>Report issues with descriptions, photos, and locations</p>
+                    <a href="complaint.html" class="feature-link">File Complaint <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon directory">
+                        <i class="fas fa-address-book"></i>
+                    </div>
+                    <h3>Local Directory</h3>
+                    <p>Find hospitals, schools, banks, and municipal offices</p>
+                    <a href="directory.html" class="feature-link">Explore Directory <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon voice">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Voice Chat</h3>
+                    <p>Voice input/output support for easier interaction</p>
+                    <a href="chat.html" class="feature-link">Use Voice <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title" id="how-title">How It Works</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Ask Questions</h3>
+                    <p>Type or speak your questions about Kohalpur</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Answers</h3>
+                    <p>Receive accurate, verified information instantly</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Take Action</h3>
+                    <p>File complaints, find contacts, or get emergency help</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offline Status -->
+    <div class="offline-alert" id="offlineAlert">
+        <i class="fas fa-wifi-slash"></i>
+        <span id="offlineText">You are currently offline. Using local FAQ database.</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kohalpur GPT</h3>
+                    <p>Official digital assistant for Kohalpur Municipality</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="chat.html">AI Chat</a></li>
+                        <li><a href="complaint.html">File Complaint</a></li>
+                        <li><a href="emergency.html">Emergency</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Kohalpur Municipality</p>
+                    <p><i class="fas fa-phone"></i> 082-560001</p>
+                    <p><i class="fas fa-envelope"></i> info@kohalpurmun.gov.np</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Kohalpur Municipality. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

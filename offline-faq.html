@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-title="faq_title">FAQ - Kohalpur GPT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/faq.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h1>Kohalpur GPT</h1>
+                    <span data-i18n="nav_faq">FAQ</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav_home">Home</span></a></li>
+                <li><a href="chat.html"><i class="fas fa-comments"></i> <span data-i18n="nav_chat">AI Chat</span></a></li>
+                <li><a href="complaint.html"><i class="fas fa-flag"></i> <span data-i18n="nav_complaint">Complaint</span></a></li>
+                <li><a href="emergency.html"><i class="fas fa-phone-alt"></i> <span data-i18n="nav_emergency">Emergency</span></a></li>
+                <li><a href="directory.html"><i class="fas fa-address-book"></i> <span data-i18n="nav_directory">Directory</span></a></li>
+                <li><a href="offline-faq.html" class="active"><i class="fas fa-database"></i> <span data-i18n="nav_faq">FAQ</span></a></li>
+                <li><a href="complaint-admin.html" class="admin-link"><i class="fas fa-user-shield"></i> <span data-i18n="nav_admin">Admin Panel</span></a></li>
+                <li class="language-switcher">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="np">नेपाली</option>
+                        <option value="th">थारु</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- FAQ -->
+    <main class="faq-container">
+        <div class="container">
+            <div class="faq-header">
+                <h1 id="faq-title" data-i18n="faq_title">Frequently Asked Questions</h1>
+                <p id="faq-subtitle" data-i18n="faq_subtitle">Find answers to common questions about Kohalpur</p>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="faq-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="faqSearch" placeholder="Search questions..." data-i18n-placeholder="search_faq_placeholder">
+                </div>
+                <div class="category-filters">
+                    <button class="category-btn active" data-category="all" data-i18n="category_all">All</button>
+                    <button class="category-btn" data-category="general" data-i18n="category_general">General</button>
+                    <button class="category-btn" data-category="emergency" data-i18n="category_emergency">Emergency</button>
+                    <button class="category-btn" data-category="services" data-i18n="category_services">Services</button>
+                    <button class="category-btn" data-category="tourism" data-i18n="category_tourism">Tourism</button>
+                    <button class="category-btn" data-category="education" data-i18n="category_education">Education</button>
+                    <button class="category-btn" data-category="health" data-i18n="category_health">Health</button>
+                </div>
+            </div>
+
+            <!-- FAQ List -->
+            <div class="faq-list" id="faqList">
+                <!-- FAQ items will be loaded here -->
+            </div>
+
+            <!-- Offline Status -->
+            <div class="offline-status">
+                <div class="status-card">
+                    <i class="fas fa-database"></i>
+                    <h3 data-i18n="offline_faq_title">Offline FAQ Database</h3>
+                    <p data-i18n="offline_faq_desc">100+ questions available without internet connection</p>
+                    <div class="status-info">
+                        <div class="status-item">
+                            <span class="status-count" id="totalQuestions">0</span>
+                            <span data-i18n="total_questions">Total Questions</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-count" id="loadedQuestions">0</span>
+                            <span data-i18n="loaded_questions">Loaded</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-count" id="verifiedCount">0</span>
+                            <span data-i18n="verified_answers">Verified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Offline Alert -->
+    <div class="offline-alert" id="offlineAlert">
+        <i class="fas fa-wifi-slash"></i>
+        <span id="offlineText" data-i18n="offline_message">You are currently offline. Using local FAQ database.</span>
+    </div>
+
+    <script src="scripts/languages.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/faq.js"></script>
+</body>
+</html>

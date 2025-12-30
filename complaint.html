@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Complaint - Kohalpur GPT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/complaint.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h1>Kohalpur GPT</h1>
+                    <span>Complaint System</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="chat.html"><i class="fas fa-comments"></i> AI Chat</a></li>
+                <li><a href="complaint.html" class="active"><i class="fas fa-flag"></i> Complaint</a></li>
+                <li><a href="emergency.html"><i class="fas fa-phone-alt"></i> Emergency</a></li>
+                <li><a href="directory.html"><i class="fas fa-address-book"></i> Directory</a></li>
+                <li><a href="offline-faq.html"><i class="fas fa-database"></i> FAQ</a></li>
+                <li class="language-switcher">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="np">नेपाली</option>
+                        <option value="th">थारु</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Complaint Form -->
+    <main class="complaint-container">
+        <div class="container">
+            <div class="complaint-header">
+                <h1>File a Complaint</h1>
+                <p>Report issues about infrastructure, services, or other problems in Kohalpur</p>
+            </div>
+
+            <div class="complaint-form-container">
+                <form id="complaintForm">
+                    <!-- Step 1: Complaint Type -->
+                    <div class="form-step active" id="step1">
+                        <h2>What type of issue?</h2>
+                        <div class="complaint-types">
+                            <label class="complaint-type">
+                                <input type="radio" name="complaintType" value="infrastructure" required>
+                                <div class="type-content">
+                                    <i class="fas fa-road"></i>
+                                    <h3>Infrastructure</h3>
+                                    <p>Roads, water, electricity, etc.</p>
+                                </div>
+                            </label>
+                            
+                            <label class="complaint-type">
+                                <input type="radio" name="complaintType" value="sanitation">
+                                <div class="type-content">
+                                    <i class="fas fa-trash"></i>
+                                    <h3>Sanitation</h3>
+                                    <p>Garbage, drainage, cleanliness</p>
+                                </div>
+                            </label>
+                            
+                            <label class="complaint-type">
+                                <input type="radio" name="complaintType" value="safety">
+                                <div class="type-content">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h3>Safety & Security</h3>
+                                    <p>Street lights, police, emergencies</p>
+                                </div>
+                            </label>
+                            
+                            <label class="complaint-type">
+                                <input type="radio" name="complaintType" value="service">
+                                <div class="type-content">
+                                    <i class="fas fa-concierge-bell"></i>
+                                    <h3>Public Service</h3>
+                                    <p>Office delays, documentation</p>
+                                </div>
+                            </label>
+                            
+                            <label class="complaint-type">
+                                <input type="radio" name="complaintType" value="other">
+                                <div class="type-content">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                    <h3>Other</h3>
+                                    <p>Any other issues</p>
+                                </div>
+                            </label>
+                        </div>
+                        <button type="button" class="btn-primary next-btn" onclick="nextStep()">Next</button>
+                    </div>
+
+                    <!-- Step 2: Details -->
+                    <div class="form-step" id="step2">
+                        <h2>Provide Details</h2>
+                        <div class="form-group">
+                            <label for="complaintTitle">Title</label>
+                            <input type="text" id="complaintTitle" placeholder="Brief description of the issue" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="complaintDescription">Description</label>
+                            <textarea id="complaintDescription" rows="5" placeholder="Describe the issue in detail..." required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" placeholder="Street, ward, landmark" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ward">Ward Number</label>
+                                <select id="ward" required>
+                                    <option value="">Select Ward</option>
+                                    <option value="1">Ward 1</option>
+                                    <option value="2">Ward 2</option>
+                                    <option value="3">Ward 3</option>
+                                    <option value="4">Ward 4</option>
+                                    <option value="5">Ward 5</option>
+                                    <option value="6">Ward 6</option>
+                                    <option value="7">Ward 7</option>
+                                    <option value="8">Ward 8</option>
+                                    <option value="9">Ward 9</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn-secondary" onclick="prevStep()">Back</button>
+                            <button type="button" class="btn-primary next-btn" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Photos & Contact -->
+                    <div class="form-step" id="step3">
+                        <h2>Add Photos & Contact Info</h2>
+                        
+                        <div class="form-group">
+                            <label>Upload Photos (Optional)</label>
+                            <div class="photo-upload">
+                                <div class="upload-area" id="uploadArea">
+                                    <i class="fas fa-camera"></i>
+                                    <p>Click or drag photos here</p>
+                                    <input type="file" id="photoUpload" accept="image/*" multiple style="display: none;">
+                                </div>
+                                <div class="preview-grid" id="previewGrid"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactName">Your Name (Optional)</label>
+                            <input type="text" id="contactName" placeholder="Your name">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number (Optional)</label>
+                                <input type="tel" id="contactPhone" placeholder="98XXXXXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email (Optional)</label>
+                                <input type="email" id="contactEmail" placeholder="your@email.com">
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" id="anonymous" checked>
+                            <label for="anonymous">Submit anonymously</label>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn-secondary" onclick="prevStep()">Back</button>
+                            <button type="submit" class="btn-primary submit-btn">Submit Complaint</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Complaint Status -->
+            <div class="complaint-status">
+                <h2>Your Submitted Complaints</h2>
+                <div class="status-container" id="complaintsList">
+                    <!-- Complaints will be loaded here -->
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>No complaints submitted yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Offline Alert -->
+    <div class="offline-alert" id="offlineAlert">
+        <i class="fas fa-wifi-slash"></i>
+        <span id="offlineText">You are offline. Complaint will be saved locally and synced when online.</span>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/complaint.js"></script>
+</body>
+</html>

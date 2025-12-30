@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-title="emergency_title">Emergency Contacts - Kohalpur GPT</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/emergency.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h1>Kohalpur GPT</h1>
+                    <span data-i18n="nav_emergency">Emergency</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav_home">Home</span></a></li>
+                <li><a href="chat.html"><i class="fas fa-comments"></i> <span data-i18n="nav_chat">AI Chat</span></a></li>
+                <li><a href="complaint.html"><i class="fas fa-flag"></i> <span data-i18n="nav_complaint">Complaint</span></a></li>
+                <li><a href="emergency.html" class="active"><i class="fas fa-phone-alt"></i> <span data-i18n="nav_emergency">Emergency</span></a></li>
+                <li><a href="directory.html"><i class="fas fa-address-book"></i> <span data-i18n="nav_directory">Directory</span></a></li>
+                <li><a href="offline-faq.html"><i class="fas fa-database"></i> <span data-i18n="nav_faq">FAQ</span></a></li>
+                <li><a href="complaint-admin.html" class="admin-link"><i class="fas fa-user-shield"></i> <span data-i18n="nav_admin">Admin Panel</span></a></li>
+                <li class="language-switcher">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="np">नेपाली</option>
+                        <option value="th">थारु</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Emergency Contacts -->
+    <main class="emergency-container">
+        <div class="container">
+            <div class="emergency-header">
+                <h1 id="emergency-title" data-i18n="emergency_title">Emergency Contacts</h1>
+                <p id="emergency-subtitle" data-i18n="emergency_subtitle">Verified emergency numbers for Kohalpur Municipality. Save these numbers for urgent situations.</p>
+            </div>
+
+            <!-- Emergency Alert -->
+            <div class="emergency-alert">
+                <div class="alert-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="alert-content">
+                    <h3 id="emergency-alert-text" data-i18n="emergency_alert">In case of emergency, call the appropriate number below immediately.</h3>
+                    <p id="emergency-alert-desc" data-i18n="emergency_alert_desc">For non-emergency municipal inquiries, use the chat feature.</p>
+                </div>
+            </div>
+
+            <!-- Emergency Grid -->
+            <div class="emergency-grid">
+                <!-- Police -->
+                <div class="emergency-card police">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-i18n="police_title">Police</h3>
+                    <div class="emergency-number">100</div>
+                    <p data-i18n="police_desc">Kohalpur Police Station</p>
+                    <div class="emergency-details">
+                        <p><strong>Kohalpur Police:</strong> 082-560123</p>
+                        <p><strong>Traffic Police:</strong> 103</p>
+                        <p><strong>Women Cell:</strong> 082-560124</p>
+                    </div>
+                    <button class="call-btn" onclick="callNumber('100')">
+                        <i class="fas fa-phone"></i> <span data-i18n="call_now">Call Now</span>
+                    </button>
+                </div>
+
+                <!-- Ambulance -->
+                <div class="emergency-card ambulance">
+                    <div class="card-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3 data-i18n="ambulance_title">Ambulance</h3>
+                    <div class="emergency-number">102</div>
+                    <p data-i18n="ambulance_desc">Kohalpur Hospital</p>
+                    <div class="emergency-details">
+                        <p><strong>Kohalpur Hospital:</strong> 082-560456</p>
+                        <p><strong>Emergency Ward:</strong> 082-560457</p>
+                        <p><strong>Ambulance Dispatch:</strong> 082-560458</p>
+                    </div>
+                    <button class="call-btn" onclick="callNumber('102')">
+                        <i class="fas fa-phone"></i> <span data-i18n="call_now">Call Now</span>
+                    </button>
+                </div>
+
+                <!-- Fire Brigade -->
+                <div class="emergency-card fire">
+                    <div class="card-icon">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <h3 data-i18n="fire_title">Fire Brigade</h3>
+                    <div class="emergency-number">101</div>
+                    <p data-i18n="fire_desc">Kohalpur Fire Station</p>
+                    <div class="emergency-details">
+                        <p><strong>Fire Station:</strong> 082-560789</p>
+                        <p><strong>Emergency Rescue:</strong> 082-560790</p>
+                    </div>
+                    <button class="call-btn" onclick="callNumber('101')">
+                        <i class="fas fa-phone"></i> <span data-i18n="call_now">Call Now</span>
+                    </button>
+                </div>
+
+                <!-- Women & Child Helpline -->
+                <div class="emergency-card women">
+                    <div class="card-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3 data-i18n="women_helpline_title">Women & Child Helpline</h3>
+                    <div class="emergency-number">104</div>
+                    <p data-i18n="women_helpline_desc">24/7 support for women and children in distress</p>
+                    <div class="emergency-details">
+                        <p><strong>Child Protection:</strong> 1098</p>
+                        <p><strong>Domestic Violence:</strong> 1145</p>
+                    </div>
+                    <button class="call-btn" onclick="callNumber('104')">
+                        <i class="fas fa-phone"></i> <span data-i18n="call_now">Call Now</span>
+                    </button>
+                </div>
+
+                <!-- Child Protection -->
+                <div class="emergency-card child">
+                    <div class="card-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 data-i18n="child_protection_title">Child Protection</h3>
+                    <div class="emergency-number">1098</div>
+                    <p data-i18n="child_protection_desc">Child protection and welfare</p>
+                    <div class="emergency-details">
+                        <p><strong>Child Helpline:</strong> 1098</p>
+                        <p><strong>Child Welfare Office:</strong> 082-560222</p>
+                    </div>
+                    <button class="call-btn" onclick="callNumber('1098')">
+                        <i class="fas fa-phone"></i> <span data-i18n="call_now">Call Now</span>
+                    </button>
+                </div>
+
+                <!-- Electricity Emergency -->
+                <div class="emergency-card electricity">
+                    <div class="card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 data-i18n="electricity_title">Electricity Emergency</h3>
+                    <div class="emergency-number">1134</div>
+                    <p data-i18n="electricity_desc">Nepal Electricity Authority</p>
+                    <div class="emergency-details">
+                        <p><strong>NEA Kohalpur:</strong> 082-560333</p>
+                        <p><strong>Power Outage:</strong> 1134</p>
+                    </div>
+                    <button class="call-btn" onclick="callNumber('1134')">
+                        <i class="fas fa-phone"></i> <span data-i18n="call_now">Call Now</span>
+                    </button>
+                </div>
+
+                <!-- Water Supply -->
+                <div class="emergency-card water">
+                    <div class="card-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 data-i18n="water_title">Water Supply</h3>
+                    <div class="emergency-number">1150</div>
+                    <p data-i18n="water_desc">Water supply issues</p>
+                    <div class="emergency-details">
+                        <p><strong>Water Department:</strong> 082-560444</p>
+                        <p><strong>Pipe Breakage:</strong> 1150</p>
+                    </div>
+                    <button class="call-btn" onclick="callNumber('1150')">
+                        <i class="fas fa-phone"></i> <span data-i18n="call_now">Call Now</span>
+                    </button>
+                </div>
+
+                <!-- Municipal Office -->
+                <div class="emergency-card municipal">
+                    <div class="card-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 data-i18n="municipal_office_title">Municipal Office</h3>
+                    <div class="emergency-number">082-560001</div>
+                    <p data-i18n="municipal_office_desc">Main office contact</p>
+                    <div class="emergency-details">
+                        <p><strong>Mayor Office:</strong> 082-560002</p>
+                        <p><strong>Administration:</strong> 082-560003</p>
+                        <p><strong>Public Service:</strong> 082-560004</p>
+                    </div>
+                    <button class="call-btn" onclick="callNumber('082560001')">
+                        <i class="fas fa-phone"></i> <span data-i18n="call_now">Call Now</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Emergency Tips -->
+            <div class="emergency-tips">
+                <h2 data-i18n="emergency_tips_title">Emergency Safety Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3 data-i18n="tip_remain_calm">Remain Calm</h3>
+                        <p data-i18n="tip_remain_calm_desc">Stay calm and assess the situation before taking action.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3 data-i18n="tip_location">Provide Location</h3>
+                        <p data-i18n="tip_location_desc">Always provide clear location details to emergency services.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-first-aid"></i>
+                        <h3 data-i18n="tip_first_aid">First Aid</h3>
+                        <p data-i18n="tip_first_aid_desc">Apply basic first aid while waiting for medical help.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-phone-volume"></i>
+                        <h3 data-i18n="tip_clear_call">Clear Communication</h3>
+                        <p data-i18n="tip_clear_call_desc">Speak clearly and provide all necessary information.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save Contacts -->
+            <div class="save-contacts">
+                <h2 data-i18n="save_contacts_title">Save Emergency Contacts</h2>
+                <p data-i18n="save_contacts_desc">Download or save these emergency numbers for quick access:</p>
+                <div class="save-buttons">
+                    <button class="save-btn" onclick="downloadContacts()">
+                        <i class="fas fa-download"></i> <span data-i18n="download_pdf">Download PDF</span>
+                    </button>
+                    <button class="save-btn" onclick="saveToPhone()">
+                        <i class="fas fa-mobile-alt"></i> <span data-i18n="save_to_phone">Save to Phone</span>
+                    </button>
+                    <button class="save-btn" onclick="printContacts()">
+                        <i class="fas fa-print"></i> <span data-i18n="print_contacts">Print</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Offline Alert -->
+    <div class="offline-alert" id="offlineAlert">
+        <i class="fas fa-wifi-slash"></i>
+        <span id="offlineText" data-i18n="offline_message">You are currently offline. Using local FAQ database.</span>
+    </div>
+
+    <script src="scripts/languages.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/emergency.js"></script>
+</body>
+</html>
